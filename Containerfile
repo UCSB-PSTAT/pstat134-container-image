@@ -12,7 +12,8 @@ RUN pip install otter-grader
 
 RUN mamba install -c conda-forge rise
 
-ENV TZ PST
+ENV TZ America/Los_Angeles
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN /usr/local/bin/fix-permissions "${CONDA_DIR}" || true
 
