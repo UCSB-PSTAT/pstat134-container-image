@@ -1,9 +1,5 @@
-# Container image source for <course>
-Info here about where to find and run this image.
+# Container image source for PSTAT-134-234
 
-# Template instructions (**DELETE THIS SECTION**)
+Container source for ucsb/pstat-134-234.
 
-* Uncomment and add necessary libraries to Containerfile
-* mv Jenkinsfile.template to Jenkinsfile
-* Update image variable and add tests to Jenkinsfile
 

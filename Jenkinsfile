@@ -4,7 +4,7 @@ pipeline {
         upstream(upstreamProjects: 'UCSB-PSTAT GitHub/base-rstudio/main', threshold: hudson.model.Result.SUCCESS)
     }
     environment {
-        IMAGE_NAME = '<COURSE/IMAGE ID>'
+        IMAGE_NAME = 'pstat-134-234'
     }
     stages {
         stage('Build Test Deploy') {
@@ -20,6 +20,8 @@ pipeline {
                 stage('Test') {
                     steps {
                         sh 'podman run -it --rm localhost/$IMAGE_NAME which rstudio'
+                        sh 'podman run -it --rm localhost/$IMAGE_NAME which xelatex'
+			sh 'podman run -it --rm localhost/$IMAGE_NAME otter --version'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME R -q -e "getRversion() >= \\"4.1.3\\"" | tee /dev/stderr | grep -q "TRUE"'
                         //sh 'podman run -it --rm localhost/$IMAGE_NAME R -e "library(\"<library>\");library(\"<library>\")"'
                         sh 'podman run -d --name=$IMAGE_NAME --rm -p 8888:8888 localhost/$IMAGE_NAME start-notebook.sh --NotebookApp.token="jenkinstest"'
