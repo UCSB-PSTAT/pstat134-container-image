@@ -23,7 +23,7 @@ RUN pip install otter-grader \
     torchaudio \
     Scrapy
 
-RUN mamba install -c conda-forge rise
+RUN mamba install -c conda-forge rise altair
 
 ENV TZ America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
