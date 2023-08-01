@@ -23,6 +23,9 @@ RUN pip install otter-grader \
     torchaudio \
     Scrapy
 
+RUN echo -e '#!/bin/bash\n\njupyter notebook extension $@' > /opt/conda/bin/jupyter-nbextension && \
+    chmod +x /opt/conda/bin/jupyter-nbextension
+
 RUN mamba install -c conda-forge rise altair
 
 ENV TZ America/Los_Angeles
