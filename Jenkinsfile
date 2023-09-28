@@ -25,6 +25,7 @@ pipeline {
 			sh 'podman run -it --rm localhost/$IMAGE_NAME otter --version'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME R -q -e "getRversion() >= \\"4.1.3\\"" | tee /dev/stderr | grep -q "TRUE"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "import numpy; import pandas; import altair; import matplotlib; import sklearn; sklearn.show_versions(); import xgboost; import tensorflow; import torch; import scipy; import seaborn"'
+                        sh 'podman run -it --rm localhost/$IMAGE_NAME R -e "library(\"ROCR\");library(\"glmnet\");library(\"quarto\")"'
                         sh 'podman run -d --name=$IMAGE_NAME --rm -p 8888:8888 localhost/$IMAGE_NAME start-notebook.sh --NotebookApp.token="jenkinstest"'
                         sh 'sleep 10 && curl -v http://localhost:8888/rstudio?token=jenkinstest 2>&1 | grep -P "HTTP\\S+\\s[1-3][0-9][0-9]\\s+[\\w\\s]+\\s*$"'
                         sh 'curl -v http://localhost:8888/lab?token=jenkinstest 2>&1 | grep -P "HTTP\\S+\\s200\\s+[\\w\\s]+\\s*$"'
