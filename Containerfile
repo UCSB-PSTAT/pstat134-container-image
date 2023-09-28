@@ -25,6 +25,8 @@ RUN pip install otter-grader \
 
 RUN mamba install -c conda-forge jupyterlab_rise altair
 
+RUN R -e "install.packages(c('ROCR', 'glmnet', 'quarto'), repos = 'https://cloud.r-project.org/', Ncpus = parallel::detectCores())"
+
 ENV TZ America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
