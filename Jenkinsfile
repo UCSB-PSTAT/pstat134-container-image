@@ -38,7 +38,7 @@ pipeline {
                     }
                     post {
                         always {
-                            sh 'podman rmi -i localhost/$IMAGE_NAME || true'
+                            sh 'podman rm -ifv $IMAGE_NAME'
                         }
                     }
                 }
@@ -56,6 +56,9 @@ pipeline {
         }
     }
     post {
+        always {
+            sh 'podman rmi -i localhost/$IMAGE_NAME || true'
+        }
         success {
             slackSend(channel: '#infrastructure-build', username: 'jenkins', color: 'good', message: "Build ${env.JOB_NAME} ${env.BUILD_NUMBER} just finished successfull! (<${env.BUILD_URL}|Details>)")
         }
