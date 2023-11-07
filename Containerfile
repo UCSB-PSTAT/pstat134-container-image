@@ -5,7 +5,7 @@ LABEL maintainer="LSIT Systems <lsitops@ucsb.edu>"
 USER root
 
 RUN apt-get update && \
-    apt-get install -y texlive-full lmodern python3-dev libbz2-dev libxt-dev nano && \
+    apt-get install -y texlive-full lmodern python3-dev libbz2-dev libxt-dev nano texlive-xetex texlive-fonts-recommended texlive-plain-generic && \
     apt-get clean
 
 RUN pip install otter-grader \
@@ -21,7 +21,10 @@ RUN pip install otter-grader \
     torch \
     torchvision \
     torchaudio \
-    Scrapy
+    Scrapy \
+    cvxpy \
+    statsmodels
+
 
 RUN mamba install -c conda-forge jupyterlab_rise altair
 
