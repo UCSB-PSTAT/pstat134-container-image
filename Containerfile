@@ -1,4 +1,4 @@
-FROM ucsb/rstudio-basei:latest
+FROM ucsb/rstudio-base:latest
 
 LABEL maintainer="LSIT Systems <lsitops@ucsb.edu>"
 
