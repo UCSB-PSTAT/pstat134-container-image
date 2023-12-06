@@ -9,21 +9,14 @@ RUN apt-get update && \
     apt-get clean
 
 RUN pip install otter-grader \
-    Theano \
-    xgboost \
-    otter-grader \
     seaborn \
-    keras \
-    tensorflow \
     scipy \
     scikit-learn \
     matplotlib \
-    torch \
-    torchvision \
-    torchaudio \
-    Scrapy \
     cvxpy \
-    statsmodels
+    statsmodels \
+    umap-learn \
+    yfinance
 
 
 RUN mamba install -c conda-forge jupyterlab_rise altair
