@@ -14,7 +14,6 @@ RUN pip install otter-grader \
     otter-grader \
     seaborn \
     keras \
-    tensorflow \
     scipy \
     scikit-learn \
     matplotlib \
