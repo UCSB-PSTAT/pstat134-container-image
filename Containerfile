@@ -1,4 +1,4 @@
-FROM ucsb/rstudio-base:latest
+FROM ucsb/rstudio-basei:latest
 
 LABEL maintainer="LSIT Systems <lsitops@ucsb.edu>"
 
@@ -9,20 +9,14 @@ RUN apt-get update && \
     apt-get clean
 
 RUN pip install otter-grader \
-    Theano \
-    xgboost \
-    otter-grader \
     seaborn \
-    keras \
     scipy \
     scikit-learn \
     matplotlib \
-    torch \
-    torchvision \
-    torchaudio \
-    Scrapy \
     cvxpy \
-    statsmodels
+    statsmodels \
+    umap-learn \
+    yfinance
 
 
 RUN mamba install -c conda-forge jupyterlab_rise altair
