@@ -16,10 +16,12 @@ RUN pip install otter-grader \
     cvxpy \
     statsmodels \
     umap-learn \
-    yfinance
+    yfinance \
+    pyarrow \
+    geopandas \
+    folium
 
-
-RUN mamba install -c conda-forge jupyterlab_rise altair r-rocr r-glmnet r-quarto
+RUN conda install -y -c conda-forge jupyterlab_rise altair r-rocr r-glmnet r-quarto
 
 ENV TZ America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
