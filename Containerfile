@@ -21,7 +21,10 @@ RUN pip install otter-grader \
     geopandas \
     folium
 
-RUN conda install -y -c conda-forge jupyterlab_rise altair r-glmnet r-quarto r-reticulate r-rocr r-spotifyr
+RUN conda install -y -c conda-forge jupyterlab_rise altair
+
+RUN R -e "install.packages(c('glmnet', 'quarto', 'reticulate', 'rocr', 'spotifyr'), repos = 'https://cloud.r-project.org/', Ncpus = parallel::detectCores())"
+
 
 ENV TZ America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
