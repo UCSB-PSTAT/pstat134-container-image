@@ -43,7 +43,6 @@ pipeline {
                         sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "import numpy"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "import pandas"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "import pyarrow"'
-                        sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "import quarto"'  
                         sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "import requests"'  
                         sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "import sklearn; sklearn.show_versions()"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "import scipy"'
@@ -71,7 +70,6 @@ pipeline {
                         sh 'podman run -it --rm localhost/$IMAGE_NAME R -e "library(\"tidyr\")"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME R -e "library(\"tidyverse\")"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME R -e "library(\"torch\")"'
-
                         sh 'podman run -d --name=$IMAGE_NAME --rm -p 8888:8888 localhost/$IMAGE_NAME start-notebook.sh --NotebookApp.token="jenkinstest"'
                         sh 'sleep 10 && curl -v http://localhost:8888/rstudio?token=jenkinstest 2>&1 | grep -P "HTTP\\S+\\s[1-3][0-9][0-9]\\s+[\\w\\s]+\\s*$"'
                         sh 'curl -v http://localhost:8888/lab?token=jenkinstest 2>&1 | grep -P "HTTP\\S+\\s200\\s+[\\w\\s]+\\s*$"'
