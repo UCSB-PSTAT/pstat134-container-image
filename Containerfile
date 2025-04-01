@@ -19,7 +19,9 @@ RUN pip install otter-grader \
     yfinance \
     pyarrow \
     geopandas \
-    folium
+    folium ; \
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu;
+    pip install tensorflow-cpu
 
 RUN conda install -y -c conda-forge \
     jupyterlab_rise \
@@ -27,9 +29,6 @@ RUN conda install -y -c conda-forge \
     beautifulsoup4 \
     keras \
     quarto \
-    tensorflow-cpu \
-    pytorch-cpu \
-    torchvision-cpu \
     r-glmnet \
     r-keras \
     r-quarto \
