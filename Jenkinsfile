@@ -35,7 +35,7 @@ pipeline {
 			sh 'podman run -it --rm localhost/$IMAGE_NAME otter --version'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME R -q -e "getRversion() >= \\"4.1.3\\"" | tee /dev/stderr | grep -q "TRUE"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "import altair"'
-                        sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "import beautifulsoup4"'
+                        sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "from bs4 import BeautifulSoup"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "import cvxpy"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "import geopandas"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "import folium"'
