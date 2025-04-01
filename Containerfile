@@ -20,7 +20,7 @@ RUN pip install otter-grader \
     pyarrow \
     geopandas \
     folium ; \
-    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu;
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu; \
     pip install tensorflow-cpu
 
 RUN conda install -y -c conda-forge \
