@@ -57,7 +57,6 @@ pipeline {
                         sh 'podman run -it --rm localhost/$IMAGE_NAME R -e "library(\"httr\")"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME R -e "library(\"keras\")"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME R -e "library(\"lubridate\")"'
-                        sh 'podman run -it --rm localhost/$IMAGE_NAME R -e "library(\"quarto\")"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME R -e "library(\"readr\")"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME R -e "library(\"reticulate\")"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME R -e "library(\"ROCR\")"'

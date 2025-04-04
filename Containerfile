@@ -28,10 +28,8 @@ RUN conda install -y -c conda-forge \
     altair \
     beautifulsoup4 \
     keras \
-    quarto \
     r-glmnet \
     r-keras \
-    r-quarto \
     r-reticulate \
     r-rocr \
     r-spotifyr \
@@ -45,4 +43,3 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN /usr/local/bin/fix-permissions "${CONDA_DIR}" || true
 
 USER $NB_USER
-
