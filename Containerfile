@@ -8,13 +8,21 @@ RUN apt-get update && \
     apt-get install -y texlive-full lmodern python3-dev libbz2-dev libxt-dev nano texlive-xetex texlive-fonts-recommended texlive-plain-generic bsdmainutils && \
     apt-get clean
 
-RUN pip install otter-grader \
+RUN pip install \
+    cvxpy \
+    csvkit \
+    geopandas \
+    jupyter-cache \
+    jupyterlab-quarto \
+    matplotlib \
+    otter-grader \
+    pyarrow \
+    rapidfuzz \
+    statsmodels \
     seaborn \
     scipy \
     scikit-learn \
-    matplotlib \
-    cvxpy \
-    statsmodels \
+    tabulate \
     umap-learn \
     yfinance \
     pyarrow \
