@@ -41,9 +41,10 @@ RUN conda install -y -c conda-forge \
     r-reticulate \
     r-rocr \
     r-spotifyr \
-    r::r-text \
-    r::r-textdata \
     r-torch
+
+# Install from CRAN to avoid R Downgrades
+RUN R -e "install.packages(c( 'text', 'textdata'), repos = 'https://cloud.r-project.org/', Ncpus = parallel::detectCores())"
 
 ENV TZ America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
