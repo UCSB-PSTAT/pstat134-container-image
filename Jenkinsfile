@@ -34,7 +34,7 @@ pipeline {
                         sh 'podman run -it --rm localhost/$IMAGE_NAME which jcache'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME which xelatex'
 			sh 'podman run -it --rm localhost/$IMAGE_NAME otter --version'
-                        sh 'podman run -it --rm localhost/$IMAGE_NAME R -q -e "getRversion() >= \\"4.1.3\\"" | tee /dev/stderr | grep -q "TRUE"'
+                        sh 'podman run -it --rm localhost/$IMAGE_NAME R -q -e "getRversion() >= \\"4.5.2\\"" | tee /dev/stderr | grep -q "TRUE"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "import altair"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "from bs4 import BeautifulSoup"'
                         sh 'podman run -it --rm localhost/$IMAGE_NAME python -c "import csvkit"'
@@ -113,10 +113,10 @@ pipeline {
     }
     post {
         success {
-            slackSend(channel: '#infrastructure-build', username: 'jenkins', color: 'good', message: "Build ${env.JOB_NAME} ${env.BUILD_NUMBER} just finished successfull! (<${env.BUILD_URL}|Details>)")
+            slackSend(username: 'jenkins', color: 'good', message: "Build ${env.JOB_NAME} ${env.BUILD_NUMBER} just finished successfull! (<${env.BUILD_URL}|Details>)")
         }
         failure {
-            slackSend(channel: '#infrastructure-build', username: 'jenkins', color: 'danger', message: "Uh Oh! Build ${env.JOB_NAME} ${env.BUILD_NUMBER} had a failure! (<${env.BUILD_URL}|Find out why>).")
+            slackSend(username: 'jenkins', color: 'danger', message: "Uh Oh! Build ${env.JOB_NAME} ${env.BUILD_NUMBER} had a failure! (<${env.BUILD_URL}|Find out why>).")
         }
     }
 }
