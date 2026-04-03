@@ -59,7 +59,7 @@ RUN pip install \
     pip install tensorflow-cpu
 
 RUN conda install -y -c conda-forge \
-    jupyter-cache
+    jupyter-cache \
     jupyterlab_rise \
     abseil-cpp \
     altair \
