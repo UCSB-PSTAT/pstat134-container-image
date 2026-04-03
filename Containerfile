@@ -8,12 +8,11 @@ RUN apt-get update && \
     apt-get install -y texlive-full lmodern python3-dev libbz2-dev libxt-dev nano texlive-xetex texlive-fonts-recommended texlive-plain-generic bsdmainutils && \
     apt-get clean
 
-RUN pip install \
+RUN /opt/conda/bin/pip install \
     aiohttp \
     albumentations \
     annoy \
     bokeh \
-    cv2-python \
     cvxpy \
     csvkit \
     faiss-cpu \
@@ -29,6 +28,7 @@ RUN pip install \
     matplotlib \
     nltk \
     numpy \
+    opencv-python-headless \
     pandas \
     pillow \
     playwright \
