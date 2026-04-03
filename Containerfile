@@ -9,25 +9,54 @@ RUN apt-get update && \
     apt-get clean
 
 RUN pip install \
+    aiohttp \
+    albumentations \
+    annoy \
+    bokeh \
+    cv2-python \
     cvxpy \
     csvkit \
+    faiss-cpu \
+    folium \
+    gensim \
     geopandas \
+    httpx \
+    implicit \
     jupyter-cache \
     jupyterlab-quarto \
+    lightfm \
+    lxml \
     matplotlib \
+    nltk \
+    numpy \
     otter-grader \
+    pandas \
+    pillow \
+    playwright \
+    plotly \
+    polars \
     pyarrow \
+    python-dateutil \
+    pytz \
     rapidfuzz \
-    statsmodels \
-    seaborn \
-    scipy \
+    regex \
+    requests \
     scikit-learn \
+    scipy \
+    scrapy \
+    seaborn \
+    selenium \
+    sentence-transformers \
+    spacy \
+    statsmodels \
+    surprise \
     tabulate \
+    textblob \
+    timm \
+    transformers \
     umap-learn \
-    yfinance \
-    pyarrow \
-    geopandas \
-    folium ; \
+    wordcloud \
+    yfinance ; \
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu; \
     pip install tensorflow-cpu
 
