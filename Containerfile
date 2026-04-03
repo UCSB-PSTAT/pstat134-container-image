@@ -29,7 +29,6 @@ RUN pip install \
     matplotlib \
     nltk \
     numpy \
-    otter-grader \
     pandas \
     pillow \
     playwright \
