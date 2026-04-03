@@ -5,8 +5,18 @@ LABEL maintainer="LSIT Systems <lsitops@ucsb.edu>"
 USER root
 
 RUN apt-get update && \
-    apt-get install -y texlive-full lmodern python3-dev libbz2-dev libxt-dev nano texlive-xetex texlive-fonts-recommended texlive-plain-generic bsdmainutils && \
-    apt-get clean
+    apt-get install -y texlive-full lmodern python3-dev libbz2-dev libxt-dev nano texlive-xetex texlive-fonts-recommended texlive-plain-generic bsdmainutils \
+    libgdal-dev \
+    libproj-dev \
+    libgeos-dev \
+    libudunits2-dev \
+    pkg-config \
+    cmake \
+    libssl-dev \
+    libcurl4-openssl-dev \
+    libxml2-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN pip install \
     aiohttp \
