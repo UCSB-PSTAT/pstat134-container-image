@@ -61,9 +61,15 @@ RUN pip install \
 
 RUN conda install -y -c conda-forge \
     jupyterlab_rise \
+    abseil-cpp \
     altair \
     beautifulsoup4 \
     keras \
+    r-s2 \
+    r-sf \
+    r-terra \
+    r-raster \
+    r-leaflet \
     r-glmnet \
     r-keras \
     r-reticulate \
@@ -72,7 +78,11 @@ RUN conda install -y -c conda-forge \
     r-torch
 
 # Install from CRAN to avoid R Downgrades
-RUN R -e "install.packages(c('caret', 'coop', 'curl', 'data.table', 'dplyr', 'EBImage', 'ggplot2', 'httr', 'httr2', 'imager', 'janitor', 'jsonlite', 'leaflet', 'lubridate', 'magick', 'OpenImageR', 'plotly', 'polite', 'purrr', 'quanteda', 'ranger', 'readr', 'recommenderlab', 'recosystem', 'robotstxt', 'RSelenium', 'rvest', 'scales', 'skimr', 'spacyr', 'stringr', 'tensorflow', 'text', 'text2vec', 'textdata', 'tidymodels', 'tidyr', 'tidytext', 'tm', 'tokenizers', 'wordcloud', 'xml2', 'xgboost', 'yardstick'), repos = 'https://cloud.r-project.org/', Ncpus = parallel::detectCores())"
+# Added BiocManager to handle EBImage
+
+RUN R -e "install.packages('BiocManager', repos='https://cloud.r-project.org/')" && \
+    R -e "BiocManager::install('EBImage', update=FALSE, ask=FALSE)" && \
+    R -e "install.packages(c('caret', 'coop', 'curl', 'data.table', 'dplyr', 'ggplot2', 'httr', 'httr2', 'imager', 'janitor', 'jsonlite', 'lubridate', 'magick', 'OpenImageR', 'plotly', 'polite', 'purrr', 'quanteda', 'ranger', 'readr', 'recommenderlab', 'recosystem', 'robotstxt', 'RSelenium', 'rvest', 'scales', 'skimr', 'spacyr', 'stringr', 'tensorflow', 'text', 'text2vec', 'textdata', 'tidymodels', 'tidyr', 'tidytext', 'tm', 'tokenizers', 'wordcloud', 'xml2', 'xgboost', 'yardstick'), repos = 'https://cloud.r-project.org/', Ncpus = parallel::detectCores())"
 
 ENV TZ America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
