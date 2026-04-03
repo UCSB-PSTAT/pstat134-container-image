@@ -8,7 +8,7 @@ RUN apt-get update && \
     apt-get install -y texlive-full lmodern python3-dev libbz2-dev libxt-dev nano texlive-xetex texlive-fonts-recommended texlive-plain-generic bsdmainutils && \
     apt-get clean
 
-RUN /opt/conda/bin/pip install \
+RUN pip install \
     aiohttp \
     albumentations \
     annoy \
@@ -84,9 +84,9 @@ RUN R -e "install.packages('BiocManager', repos='https://cloud.r-project.org/')"
     R -e "BiocManager::install('EBImage', update=FALSE, ask=FALSE)" && \
     R -e "install.packages(c('caret', 'coop', 'curl', 'data.table', 'dplyr', 'ggplot2', 'httr', 'httr2', 'imager', 'janitor', 'jsonlite', 'lubridate', 'magick', 'OpenImageR', 'plotly', 'polite', 'purrr', 'quanteda', 'ranger', 'readr', 'recommenderlab', 'recosystem', 'robotstxt', 'RSelenium', 'rvest', 'scales', 'skimr', 'spacyr', 'stringr', 'tensorflow', 'text', 'text2vec', 'textdata', 'tidymodels', 'tidyr', 'tidytext', 'tm', 'tokenizers', 'wordcloud', 'xml2', 'xgboost', 'yardstick'), repos = 'https://cloud.r-project.org/', Ncpus = parallel::detectCores())"
 
+ENV PATH="/opt/conda/bin:/home/${NB_USER}/.local/bin:${PATH}"
 ENV TZ America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
 RUN /usr/local/bin/fix-permissions "${CONDA_DIR}" || true
 
 USER $NB_USER
