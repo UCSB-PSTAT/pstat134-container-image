@@ -68,8 +68,8 @@ RUN pip install \
     transformers \
     umap-learn \
     wordcloud \
-    yfinance ; \
-    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu; \
+    yfinance && \
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu && \
     pip install tensorflow-cpu
 
 RUN conda install -y -c conda-forge \
