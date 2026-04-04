@@ -23,12 +23,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN conda install -y -c conda-forge \
-    abseil-cpp \
     altair \
     beautifulsoup4 \
-    cmake \
-    gdal \
-    geos \
     jupyter-cache \
     jupyterlab_rise \
     keras \
@@ -36,8 +32,6 @@ RUN conda install -y -c conda-forge \
     otter-grader \
     pandas \
     pkg-config \
-    proj \
-    proj-data \
     r-leaflet \
     scikit-learn \
     scipy \
