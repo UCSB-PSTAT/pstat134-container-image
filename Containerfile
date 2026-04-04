@@ -22,7 +22,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip install \
+RUN python3 -m pip install --no-cache-dir \
     aiohttp \
     albumentations \
     annoy \
