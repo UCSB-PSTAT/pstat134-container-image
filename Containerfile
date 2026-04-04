@@ -39,9 +39,7 @@ RUN python3 -m pip install --no-cache-dir \
     lxml \
     matplotlib \
     nltk \
-    numpy \
     opencv-python-headless \
-    pandas \
     pillow \
     playwright \
     plotly \
@@ -52,15 +50,12 @@ RUN python3 -m pip install --no-cache-dir \
     rapidfuzz \
     regex \
     requests \
-    scikit-learn \
-    scipy \
     scrapy \
     seaborn \
     selenium \
     sentence-transformers \
     spacy \
     statsmodels \
-    surprise \
     tabulate \
     textblob \
     timm \
@@ -81,9 +76,14 @@ RUN conda install -y -c conda-forge \
     jupyterlab_rise \
     keras \
     lightfm \
+    numpy \
     otter-grader \
+    pandas \
     pkg-config \
     proj \
+    scikit-learn \
+    scikit-surprise \
+    scipy \
     udunits2
 
 # Install from CRAN to avoid R Downgrades
