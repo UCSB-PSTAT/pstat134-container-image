@@ -6,12 +6,6 @@ USER root
 
 RUN apt-get update && \
     apt-get install -y texlive-full lmodern python3-dev libbz2-dev libxt-dev nano texlive-xetex texlive-fonts-recommended texlive-plain-generic bsdmainutils \
-    libgdal-dev \
-    libproj-dev \
-    libgeos-dev \
-    libudunits2-dev \
-    pkg-config \
-    cmake \
     libssl-dev \
     libcurl4-openssl-dev \
     libxml2-dev && \
@@ -69,13 +63,18 @@ RUN pip install \
     pip install tensorflow-cpu
 
 RUN conda install -y -c conda-forge \
-    jupyter-cache \
-    jupyterlab_rise \
     abseil-cpp \
     altair \
     beautifulsoup4 \
+    gdal \
+    geos \
+    jupyter-cache \
+    jupyterlab_rise \
     keras \
-    otter-grader
+    otter-grader \
+    pkg-config \
+    proj \
+    udunits2
 
 # Install from CRAN to avoid R Downgrades
 # Added BiocManager to handle EBImage
