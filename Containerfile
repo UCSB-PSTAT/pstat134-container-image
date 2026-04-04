@@ -85,7 +85,10 @@ RUN python3 -m pip install --no-cache-dir \
     python3 -m pip install --no-cache-dir tensorflow-cpu
 
 # Install from CRAN to avoid R Downgrades
-RUN export LD_LIBRARY_PATH=/opt/conda/lib:$LD_LIBRARY_PATH && \
+RUN export PKG_CONFIG_PATH=/opt/conda/lib/pkgconfig:$PKG_CONFIG_PATH && \
+    export LD_LIBRARY_PATH=/opt/conda/lib:$LD_LIBRARY_PATH && \
+    export PROJ_DATA=/opt/conda/share/proj && \
+    export PROJ_LIB=/opt/conda/share/proj && \
     Rscript -e "install.packages('BiocManager', repos='https://cloud.r-project.org/')" && \
     Rscript -e "BiocManager::install('EBImage', update=FALSE, ask=FALSE)" && \
     Rscript -e "install.packages(c('caret', 'coop', 'curl', 'data.table', 'dplyr', 'ggplot2', 'glmnet', 'httr', 'httr2', 'imager', 'janitor', 'jsonlite', 'leaflet', 'lubridate', 'keras', 'magick', 'OpenImageR', 'plotly', 'polite', 'purrr', 'quanteda', 'ranger', 'raster', 'readr', 'recommenderlab', 'recosystem', 'robotstxt', 'ROCR', 'RSelenium', 'rvest', 's2', 'scales', 'sf', 'skimr', 'spacyr', 'spotifyr', 'stringr', 'terra', 'tensorflow', 'reticulate', 'text', 'text2vec', 'textdata', 'tidymodels', 'tidyr', 'tidytext', 'tm', 'tokenizers', 'torch', 'wordcloud', 'xml2', 'xgboost', 'yardstick'), repos = 'https://cloud.r-project.org/', Ncpus = parallel::detectCores())"
