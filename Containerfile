@@ -68,8 +68,8 @@ RUN python3 -m pip install --no-cache-dir \
     umap-learn \
     wordcloud \
     yfinance && \
-    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu && \
-    pip install tensorflow-cpu
+    python3 -m pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu && \
+    python3 -m pip install --no-cache-dir tensorflow-cp
 
 RUN conda install -y -c conda-forge \
     abseil-cpp \
