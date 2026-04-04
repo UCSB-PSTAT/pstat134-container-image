@@ -22,6 +22,26 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+RUN conda install -y -c conda-forge \
+    abseil-cpp \
+    altair \
+    beautifulsoup4 \
+    gdal \
+    geos \
+    jupyter-cache \
+    jupyterlab_rise \
+    keras \
+    lightfm \
+    numpy \
+    otter-grader \
+    pandas \
+    pkg-config \
+    proj \
+    scikit-learn \
+    scikit-surprise \
+    scipy \
+    udunits2
+
 RUN python3 -m pip install --no-cache-dir \
     aiohttp \
     albumentations \
@@ -64,27 +84,8 @@ RUN python3 -m pip install --no-cache-dir \
     wordcloud \
     yfinance && \
     python3 -m pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu && \
-    python3 -m pip install --no-cache-dir tensorflow-cp
+    python3 -m pip install --no-cache-dir tensorflow-cpu
 
-RUN conda install -y -c conda-forge \
-    abseil-cpp \
-    altair \
-    beautifulsoup4 \
-    gdal \
-    geos \
-    jupyter-cache \
-    jupyterlab_rise \
-    keras \
-    lightfm \
-    numpy \
-    otter-grader \
-    pandas \
-    pkg-config \
-    proj \
-    scikit-learn \
-    scikit-surprise \
-    scipy \
-    udunits2
 
 # Install from CRAN to avoid R Downgrades
 # Added BiocManager to handle EBImage
