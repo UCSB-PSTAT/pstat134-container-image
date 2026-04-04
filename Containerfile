@@ -38,6 +38,7 @@ RUN conda install -y -c conda-forge \
     pkg-config \
     proj \
     proj-data \
+    r-leaflet \
     scikit-learn \
     scipy \
     udunits2
@@ -93,7 +94,7 @@ RUN export PKG_CONFIG_PATH=/opt/conda/lib/pkgconfig:$PKG_CONFIG_PATH && \
     export PROJ_LIB=/opt/conda/share/proj && \
     Rscript -e "install.packages('BiocManager', repos='https://cloud.r-project.org/')" && \
     Rscript -e "BiocManager::install('EBImage', update=FALSE, ask=FALSE)" && \
-    Rscript -e "install.packages(c('caret', 'coop', 'curl', 'data.table', 'dplyr', 'ggplot2', 'glmnet', 'httr', 'httr2', 'imager', 'janitor', 'jsonlite', 'leaflet', 'lubridate', 'keras', 'magick', 'OpenImageR', 'plotly', 'polite', 'purrr', 'quanteda', 'ranger', 'raster', 'readr', 'recommenderlab', 'recosystem', 'robotstxt', 'ROCR', 'RSelenium', 'rvest', 's2', 'scales', 'sf', 'skimr', 'spacyr', 'spotifyr', 'stringr', 'terra', 'tensorflow', 'reticulate', 'text', 'text2vec', 'textdata', 'tidymodels', 'tidyr', 'tidytext', 'tm', 'tokenizers', 'torch', 'wordcloud', 'xml2', 'xgboost', 'yardstick'), repos = 'https://cloud.r-project.org/', Ncpus = parallel::detectCores())"
+    Rscript -e "install.packages(c('caret', 'coop', 'curl', 'data.table', 'dplyr', 'ggplot2', 'glmnet', 'httr', 'httr2', 'imager', 'janitor', 'jsonlite', 'lubridate', 'keras', 'magick', 'OpenImageR', 'plotly', 'polite', 'purrr', 'quanteda', 'ranger', 'raster', 'readr', 'recommenderlab', 'recosystem', 'robotstxt', 'ROCR', 'RSelenium', 'rvest', 'scales',  'skimr', 'spacyr', 'spotifyr', 'stringr', 'tensorflow', 'reticulate', 'text', 'text2vec', 'textdata', 'tidymodels', 'tidyr', 'tidytext', 'tm', 'tokenizers', 'torch', 'wordcloud', 'xml2', 'xgboost', 'yardstick'), repos = 'https://cloud.r-project.org/', Ncpus = parallel::detectCores())"
 
 ENV TZ America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
