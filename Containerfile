@@ -26,6 +26,7 @@ RUN conda install -y -c conda-forge \
     abseil-cpp \
     altair \
     beautifulsoup4 \
+    cmake \
     gdal \
     geos \
     jupyter-cache \
@@ -36,6 +37,7 @@ RUN conda install -y -c conda-forge \
     pandas \
     pkg-config \
     proj \
+    proj-data \
     scikit-learn \
     scipy \
     udunits2
