@@ -36,7 +36,6 @@ RUN pip install \
     httpx \
     implicit \
     jupyterlab-quarto \
-    lightfm \
     lxml \
     matplotlib \
     nltk \
@@ -81,6 +80,7 @@ RUN conda install -y -c conda-forge \
     jupyter-cache \
     jupyterlab_rise \
     keras \
+    lightfm \
     otter-grader \
     pkg-config \
     proj \
